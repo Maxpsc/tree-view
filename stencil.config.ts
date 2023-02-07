@@ -16,6 +16,7 @@ export const config: Config = {
     {
       type: 'www',
       dir: 'docs',
+      baseUrl: 'https://maxpsc.github.io/tree-view/',
       serviceWorker: null, // disable service workers
     },
   ],
