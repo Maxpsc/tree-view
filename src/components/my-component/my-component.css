@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.my-container {
+  padding: 20px;
+  background: grey;
+  color: #fff;
+}

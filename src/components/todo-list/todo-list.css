@@ -1,0 +1,49 @@
+:host {
+	display: block;
+}
+
+.list-wrapper {
+	border: 1px dashed #ccc;
+	padding: 20px 40px;
+	font-size: 16px;;
+}
+
+ul {
+	padding: 0;
+}
+
+h1 {
+	margin: 0 0 10px;
+	font-size: 1.5em;
+}
+
+input {
+	padding: 4px 8px;
+	font-size: 1.5em;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+li {
+	margin: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+p {
+	margin: 0;
+}
+
+p.done {
+	text-decoration: line-through;
+}
+
+li:hover {
+	font-weight: 500;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/tree-view.esm.js"></script>
+    <script nomodule src="/build/tree-view.js"></script>
+  </head>
+  <body>
+    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <todo-list header="My todo-list"></todo-list>
+    <tree-view expanded></tree-view>
+
+    <script>
+      
+      (async () => {
+        await customElements.whenDefined('todo-list')
+        const target = document.querySelector('todo-list')
+
+        target.addEventListener('todoAdded', event => {
+          console.log('todo-list [todoAdded]', event)
+        })
+        target.addEventListener('todoCompleted', event => {
+          console.log('todo-list [todoCompleted]', event)
+        })
+
+        const list = await target.addItem('new item~~~~~~')
+        console.log(list)
+
+        await customElements.whenDefined('tree-view')
+        const tree = document.querySelector('tree-view')
+        tree.data = [{
+          label: 'root',
+          children: [
+            {
+              label: '1',
+              children: [
+                {
+                  label: '1-1',
+                  children: [
+                    {
+                      label: '1-1-1'
+                    }
+                  ]
+                },
+                {
+                  label: '1-2'
+                }
+              ]
+            },
+            {
+              label: '2',
+              children: [
+                {
+                  label: '2-1'
+                }
+              ]
+            }]
+          }]
+
+        tree.addEventListener('toggleNode', event => {
+          console.log('tree-view [toggleNode]', event)
+        })
+
+      })()
+      
+    </script>
+  </body>
+</html>
